@@ -1,0 +1,47 @@
+body {
+	font: 0.75em / 1.5 "Lucida Sans", Verdana, Arial, Tahoma, sans-serif;
+}
+.error, .validation_error {
+	background: #ecc;
+	color: #c00;
+	border: 1px solid #d99;
+	padding: 0.5em;
+}
+.validation_errors {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+dl {
+	font-size: 1.5em;
+	padding-left: 10em;
+}
+dt {
+	float: left;
+	margin-left: -10em;
+}
+dt label {
+	display: block;
+	padding: 0.25em;
+}
+dd {
+	padding: 0 0.375em;
+	margin: 0;
+}
+dd input {
+	font-size: 1em;
+	padding: 0.25em;
+	border: 0.125em solid #ccc;
+	margin: 0;
+	margin-left: -0.375em;
+	width: 100%;
+}
+button {
+	font-size: 1.5em;
+	float: right;
+	background: #666;
+	border: 0.125em solid #333;
+	color: #eee;
+	padding: 0.5em 1em;
+	cursor: pointer;
+}
