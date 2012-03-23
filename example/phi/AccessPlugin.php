@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../../framework/PhiPlugin.php";
+require_once "/../../framework/PhiPlugin.php";
 
 class AccessPlugin extends PhiPlugin {
 	
@@ -18,12 +18,11 @@ class AccessPlugin extends PhiPlugin {
 	
 	function preEvent($event, $context) {
 		$name = $event -> getName();
-		echo $this -> session -> isSignedIn();
-		/*if($this -> isProtected($name) && !$this -> session -> isSignedIn()) {
+		if($this -> isProtected($name) && !$this -> session -> isSignedIn()) {
 			return $this -> abortAndSignIn($context);
 		} elseif(!$this -> isProtected($name) && $this -> session -> isSignedIn()) {
 			return $this -> abortAndGoHome($context);
-		}*/
+		}
 		return true;
 	}
 	
