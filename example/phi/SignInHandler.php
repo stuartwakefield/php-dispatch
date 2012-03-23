@@ -5,12 +5,14 @@ class SignInHandler {
 	private $validator;
 	private $homeEvent;
 	private $view;
+	private $notifier;
 	
-	function __construct($request, $validator, $homeEvent, $view) {
+	function __construct($request, $validator, $homeEvent, $view, $notifier) {
 		$this -> request = $request;
 		$this -> validator = $validator;
 		$this -> homeEvent = $homeEvent;
 		$this -> view = $view;
+		$this -> notifier = $notifier;
 	}
 	
 	function handle($event, $context) {
@@ -20,7 +22,11 @@ class SignInHandler {
 				$this -> request -> signIn($password);
 				if($this -> request -> isSuccess()) {
 					$this -> abortAndGoHome($context);
+				} else {
+					$this -> notifier -> notify("fail", "Could not sign you in, please check your password");
 				}
+			} else {
+				$this -> notifier -> notify("fail", "Could not sign you in due to errors...");
 			}
 		}
 		$this -> view -> render();

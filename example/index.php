@@ -10,9 +10,12 @@ require_once "classes/security/SecurityModule.php";
 $module = new SecurityModule(array(
 	"password" => "hocuspocusfocus",
 	"signinviewpath" => "views/signin.php",
+	"notificationviewpath" => "views/notifications.php",
+	"validationviewpath" => "views/validation_errors.php",
 	"signineventurl" => "?event=signin", // buildUrl("signin")
 	"signinevent" => "signin",
-	"homeevent" => "home" // defaultevent
+	"homeevent" => "home", // defaultevent
+	"layoutpath" => "views/page.php"
 ));
 
 require_once "phi/HomeHandler.php";
