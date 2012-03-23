@@ -1,24 +1,39 @@
 body {
 	font: 0.75em / 1.5 "Lucida Sans", Verdana, Arial, Tahoma, sans-serif;
+	background: #421;
+	color: #eec;
 }
-.error, .validation_error {
-	background: #ecc;
-	color: #c00;
-	border: 1px solid #d99;
+a {
+	color: #9c9;
+}
+.message-fail, #valerrors, label.error {
+	background: #900;
+	color: #fff;
+	border: 1px solid #600;
+	margin: 10px 0;
 	padding: 0.5em;
 }
-.validation_errors {
+label.error {
+	display: block;
+	margin: 10px -0.375em;
+}
+#messages, #valerrors {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
+#valerrors {
+	padding: 0.5em 0;
+}
+#valerrors li {
+	padding: 0 0.5em;
+}
 dl {
-	font-size: 1.5em;
-	padding-left: 10em;
+	padding-left: 6em;
 }
 dt {
 	float: left;
-	margin-left: -10em;
+	margin-left: -6em;
 }
 dt label {
 	display: block;
@@ -31,17 +46,48 @@ dd {
 dd input {
 	font-size: 1em;
 	padding: 0.25em;
-	border: 0.125em solid #ccc;
+	border: 0.125em solid #210;
+	background: #222;
+	color: #eee;
 	margin: 0;
 	margin-left: -0.375em;
 	width: 100%;
+	box-shadow: inset 0 1px 1px #111;
+}
+input:focus {
+	outline: 0;
+	background: #343;
+	border: 1px solid #393;
+	box-shadow: 0 0 4px #393;
 }
 button {
-	font-size: 1.5em;
 	float: right;
-	background: #666;
-	border: 0.125em solid #333;
+	background: #363;
+	background: -webkit-linear-gradient(top, #363, #232);
+	border: 0.125em solid #020;
 	color: #eee;
 	padding: 0.5em 1em;
 	cursor: pointer;
+	margin: 0;
+	border-radius: 2px;
+	box-shadow: inset 0 0 2px #363;
+}
+.cancel {
+	float: right;
+	background: #900;
+	background: -webkit-linear-gradient(top, #900, #600);
+	border: 0.125em solid #300;
+	color: #eec;
+	padding: 0.5em 1em 0.35em;
+	cursor: pointer;
+	margin: 0;
+	margin-right: 0.5em;
+	border-radius: 2px;
+	box-shadow: inset 0 0 2px #900;
+	text-decoration: none;
+	line-height: 1.5em;
+}
+#signin {
+	width: 20em;
+	margin: 0 auto;
 }
