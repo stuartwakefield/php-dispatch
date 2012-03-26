@@ -1,7 +1,11 @@
 <?php
 class PhiEventRegistry {
 		
-	private $events = array();
+	private $events;
+	
+	function __construct() {
+		$this -> events = array();
+	}
 	
 	function register($event, $handler) {
 		if(isset($this -> events[$event])) {
