@@ -1,8 +1,6 @@
 <?php
 require_once "PhiPluginRegistry.php";
 require_once "PhiEventRegistry.php";
-// require_once "framework/PhiRouteRegistry.php";
-// require_once "framework/PhiUrlBuilder.php";
 require_once "PhiEvent.php";
 require_once "PhiHandlerContext.php";
 
