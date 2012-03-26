@@ -42,9 +42,11 @@ $phi = new Phi(array(
 	),
 	
 	"events" => array(
+		"home" => "home",
+	
 		"signin" => "signin",
 		"signout" => "signout",
-		"home" => "home",
+		
 		"tree.add" => "addtree"
 	),
 	
@@ -58,6 +60,16 @@ $phi = new Phi(array(
 	),
 	
 	"views" => array(
+		"/home" => array(
+			"path" => "views/home.inc",
+			"parent" => array(
+				"view" => "/layout/postlogin",
+				"contentArg" => "content",
+				"args" => array(
+					"title" => "Welcome"
+				)
+			)
+		),
 		"/tree/add" => array(
 			"view" => new AddTreeView("views/addtree.inc", "addtree", "home"),
 			"parent" => array(

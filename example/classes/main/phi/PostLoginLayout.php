@@ -17,6 +17,7 @@ class PostLoginLayout {
 		 * The others are either calculated here or 
 		 * optional. */
 		$title = $args["title"];
+		$stylesheet = $context -> buildResourceUrl("assets/style.css");
 		$styles = array();
 		$scripts = array();
 	//	$addTreeUrl = $args["addTreeUrl"];

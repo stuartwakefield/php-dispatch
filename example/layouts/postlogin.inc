@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title><?php echo $title;?> | Plant-a-tree-a-thon</title>
-		<link rel="stylesheet" type="text/css" href="assets/style.css"/>
+		<link rel="stylesheet" type="text/css" href="<?php echo $stylesheet;?>"/>
 		<?php foreach($styles as $style):?>
 			<link rel="stylesheet" type="text/css" href="<?php echo $style["href"];?>"<?php if(isset($style["media"])):?> media="<?php echo $style["media"];?>"<?php endif;?>/>
 		<?php endforeach;?>

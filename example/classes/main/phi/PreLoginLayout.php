@@ -9,9 +9,10 @@ class PreLoginLayout {
 		$this -> messageCollection = $messageCollection;
 	}
 	
-	function display($args) {
+	function display($args, $context) {
 		
 		$title = $args["title"];
+		$stylesheet = $context -> buildResourceUrl("assets/style.css");
 		$styles = array();
 		$scripts = array();
 		$content = $args["content"];

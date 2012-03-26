@@ -24,6 +24,10 @@ class PhiUrlBuilder {
 		return $this -> baseUrl . $url;
 	}
 	
+	function buildResourceUrl($resource) {
+		return $this -> baseUrl . $resource; 
+	}
+	
 	function redirectEvent($event, $args) {
 		header("Location: " . $this -> buildEventUrl($event, $args));
 	}

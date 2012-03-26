@@ -1,4 +1,5 @@
 <?php
+
 class PhiHandlerContext {
 			
 	private $urlBuilder;
@@ -15,13 +16,11 @@ class PhiHandlerContext {
 		$this -> application -> handle($event, $args, $this);
 	}
 	
-	// Exportable
-	// Uses build url
 	function redirectEvent($event, $args = array()) {
 		$this -> urlBuilder -> redirectEvent($event, $args);
 	}
 	
-	function displayView($view, $args) {
+	function displayView($view, $args = array()) {
 		$this -> viewManager -> displayView($view, $args);
 	}
 
