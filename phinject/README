@@ -1,9 +1,0 @@
-  Phinject is a Dependency Injection framework for PHP. 
-
-  Phinject simplifies the task of passing objects to other objects within 
-  your application. It can  be used to package up constructor logic for 
-  quickly prototyping applications and allowing a high level configuration
-  without the need for creating dedicated confuration parsing or object / 
-  applictation factory classes.
-  
-  See ./example for usage.
