@@ -1,9 +1,0 @@
-  PHP Relational Mapper
-  
-  Some sort of data access layer. Not really for ORM but more structured recordsets.
-  Although could add repository logic, the only problem is repositories are needed
-  in the model and queries / structured recordsets in the view layer. For now will
-  just work on getting and structuring data from auto joining tables or views. How
-  transformation is added in I'm not quite sure at the moment, may not be that 
-  expensive to just loop through the resulting structure and apply transformations to
-  get a new structure.

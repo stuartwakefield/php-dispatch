@@ -4,19 +4,18 @@ class MessageCollection {
 	private $messages;
 	
 	function __construct() {
-		$this -> messages = array();
+		$this->messages = array();
 	}
 	
 	function addMessage($type, $text) {
-		$this -> messages[] = array(
+		$this->messages[] = array(
 			"type" => $type,
 			"text" => $text
 		);
 	}
 	
 	function getMessages() {
-		return $this -> messages;
+		return $this->messages;
 	}
 	
 }
-?>
