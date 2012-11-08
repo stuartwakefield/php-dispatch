@@ -5,16 +5,15 @@ class SignInView {
 	private $actionEvent;
 	
 	function __construct($path, $actionEvent) {
-		$this -> path = $path;
-		$this -> actionEvent = $actionEvent;
+		$this->path = $path;
+		$this->actionEvent = $actionEvent;
 	}
 	
 	function display($args, $context) {
-		$actionUrl = $context -> buildEventUrl($this -> actionEvent, array());
+		$actionUrl = $context->buildEventUrl($this->actionEvent, array());
 		$errors = $args["errors"];
 		$username = $args["username"];
-		include $this -> path;
+		include $this->path;
 	}
 	
 }
-?>

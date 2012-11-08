@@ -1,32 +1,31 @@
 <?php
-
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
 
-require_once "/../Phi.php";
+require_once "/../Dispatch.php";
 
 require_once "classes/main/MessageCollection.php";
-require_once "classes/main/phi/HomeHandler.php";
-require_once "classes/main/phi/PreLoginLayout.php";
-require_once "classes/main/phi/PostLoginLayout.php";
+require_once "classes/main/HomeHandler.php";
+require_once "classes/main/PreLoginLayout.php";
+require_once "classes/main/PostLoginLayout.php";
 
 require_once "classes/security/Security.php";
-require_once "classes/security/phi/SignInHandler.php";
-require_once "classes/security/phi/SignOutHandler.php";
-require_once "classes/security/phi/AccessPlugin.php";
-require_once "classes/security/phi/SignInView.php";
+require_once "classes/security/SignInHandler.php";
+require_once "classes/security/SignOutHandler.php";
+require_once "classes/security/AccessPlugin.php";
+require_once "classes/security/SignInView.php";
 
-require_once "classes/domain/phi/AddTreeHandler.php";
-require_once "classes/domain/phi/AddTreeView.php";
+require_once "classes/domain/AddTreeHandler.php";
+require_once "classes/domain/AddTreeView.php";
 
 $security = new Security("username", "password");
 $messageCollection = new MessageCollection();
 
 /* The handlers here need to know about the views to display
  * the correct one */
-$phi = new Phi(array(
+$dispatch = new Dispatch(array(
 
-	"baseUrl" => "/phi/example/",
+	"baseUrl" => "/dispatch/example/",
 	"defaultEvent" => "home",
 	"exceptionEvent" => "error",
 	
@@ -61,7 +60,7 @@ $phi = new Phi(array(
 	
 	"views" => array(
 		"/home" => array(
-			"path" => "views/home.inc",
+			"path" => "views/home.php",
 			"parent" => array(
 				"view" => "/layout/postlogin",
 				"contentArg" => "content",
@@ -71,7 +70,7 @@ $phi = new Phi(array(
 			)
 		),
 		"/tree/add" => array(
-			"view" => new AddTreeView("views/addtree.inc", "addtree", "home"),
+			"view" => new AddTreeView("views/addtree.php", "addtree", "home"),
 			"parent" => array(
 				"view" => "/layout/postlogin",
 				"contentArg" => "content",
@@ -81,7 +80,7 @@ $phi = new Phi(array(
 			)
 		),
 		"/signin" => array(
-			"view" => new SignInView("views/signin.inc", "signin"),
+			"view" => new SignInView("views/signin.php", "signin"),
 			"parent" => array(
 				"view" => "/layout/prelogin",
 				"contentArg" => "content",
@@ -92,14 +91,14 @@ $phi = new Phi(array(
 			)
 		),
 		"/layout/prelogin" => array(
-			"view" => new PreLoginLayout("layouts/prelogin.inc", $messageCollection)
+			"view" => new PreLoginLayout("layouts/prelogin.php", $messageCollection)
 		),
 		"/layout/postlogin" => array(
-			"view" => new PostLoginLayout("layouts/postlogin.inc", $messageCollection)
+			"view" => new PostLoginLayout("layouts/postlogin.php", $messageCollection)
 		)
 	)
 	
 ));
 
-$phi -> run();
+$dispatch->run();
 ?>

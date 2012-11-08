@@ -1,10 +1,9 @@
 <?php
 /* The application dispatches events to handlers. A
  * handler implements a single method handle which is
- * passed an PhiEvent instance containing the event name
- * and arguments and a PhiHandlerContext instance which 
+ * passed an DispatchEvent instance containing the event name
+ * and arguments and a DispatchHandlerContext instance which 
  * encapsulates flow control */
-interface PhiHandler {
+interface DispatchHandler {
 	function handle($event, $context);
 }
-?>

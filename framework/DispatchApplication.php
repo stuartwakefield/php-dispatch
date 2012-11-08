@@ -1,10 +1,10 @@
 <?php
-require_once "PhiPluginRegistry.php";
-require_once "PhiEventRegistry.php";
-require_once "PhiEvent.php";
-require_once "PhiHandlerContext.php";
+require_once "DispatchPluginRegistry.php";
+require_once "DispatchEventRegistry.php";
+require_once "DispatchEvent.php";
+require_once "DispatchHandlerContext.php";
 
-class PhiApplication {
+class DispatchApplication {
 		
 	private $defaultEvent;
 	private $exceptionEvent;
@@ -22,12 +22,12 @@ class PhiApplication {
 		if(!isset($config["events"])) {
 			throw new Exception("No events have been defined!");
 		}
-		$this -> eventRegistry = new PhiEventRegistry();
+		$this -> eventRegistry = new DispatchEventRegistry();
 		foreach($config["events"] as $eventName => $handlerName) {
 			$handler = $config["handlers"][$handlerName];
 			$this -> eventRegistry -> register($eventName, $handler);
 		}
-		$this -> pluginRegistry = new PhiPluginRegistry();
+		$this -> pluginRegistry = new DispatchPluginRegistry();
 		if(isset($config["plugins"])) {
 			foreach($config["plugins"] as $plugin) {
 				$this -> pluginRegistry -> register($plugin);
@@ -46,7 +46,7 @@ class PhiApplication {
 	}
 
 	function run() {
-		$context = new PhiHandlerContext($this -> urlBuilder, $this, $this -> viewManager);
+		$context = new DispatchHandlerContext($this -> urlBuilder, $this, $this -> viewManager);
 		$this -> pluginRegistry -> preProcess($context);
 		$event = $this -> defaultEvent;
 		$args = array_merge($_GET, $_POST);
@@ -66,7 +66,7 @@ class PhiApplication {
 	}
 	
 	function handle($name, $args, $context) {
-		$event = new PhiEvent($name, $args);
+		$event = new DispatchEvent($name, $args);
 		if($this -> pluginRegistry -> preEvent($event, $context)) {
 			$this -> eventRegistry -> handle($event, $context);
 		}

@@ -1,5 +1,5 @@
 <?php
-class PhiPlugin {
+class DispatchPlugin {
 	
 	function preProcess($context) {}
 	
@@ -10,4 +10,3 @@ class PhiPlugin {
 	function postProcess($context) {}
 	
 }
-?>

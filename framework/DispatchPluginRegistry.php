@@ -1,17 +1,17 @@
 <?php
-class PhiPluginRegistry {
+class DispatchPluginRegistry {
 			
 	private $plugins = array();
 	
 	function register($plugin) {
-		$this -> plugins[] = $plugin;
+		$this->plugins[] = $plugin;
 		
 	}
 	
 	function preProcess($context) {
 		$halt = false;
-		foreach($this -> plugins as $plugin) {
-			$cont = $plugin -> preProcess($context);
+		foreach($this->plugins as $plugin) {
+			$cont = $plugin->preProcess($context);
 			if(isset($cont) && !$cont) {
 				$halt = true;
 			}
@@ -21,8 +21,8 @@ class PhiPluginRegistry {
 	
 	function preEvent($event, $context) {
 		$halt = false;
-		foreach($this -> plugins as $plugin) {
-			$cont = $plugin -> preEvent($event, $context);
+		foreach($this->plugins as $plugin) {
+			$cont = $plugin->preEvent($event, $context);
 			if(isset($cont) && !$cont) {
 				$halt = true;
 			}
@@ -31,16 +31,15 @@ class PhiPluginRegistry {
 	}
 	
 	function postEvent($event, $context) {
-		foreach($this -> plugins as $plugin) {
-			$plugin -> postEvent($event, $context);
+		foreach($this->plugins as $plugin) {
+			$plugin->postEvent($event, $context);
 		}
 	}
 	
 	function postProcess($context) {
-		foreach($this -> plugins as $plugin) {
-			$plugin -> postProcess($context);
+		foreach($this->plugins as $plugin) {
+			$plugin->postProcess($context);
 		}
 	}
 	
 }
-?>

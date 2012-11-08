@@ -1,37 +1,36 @@
 <?php
-
-class PhiEvent {
+class DispatchEvent {
 	
 	private $name;
 	private $args;
 	
 	function __construct($name, $args) {
-		$this -> name = $name;
-		$this -> args = $args;
+		$this->name = $name;
+		$this->args = $args;
 	}
 	
 	function getName() {
-		return $this -> name;
+		return $this->name;
 	}
 	
 	function isArgDefined($name) {
-		return isset($this -> args[$name]);
+		return isset($this->args[$name]);
 	}
 	
 	function getArg($name, $default = "") {
 		$value = $default;
-		if($this -> isArgDefined($name)) {
-			$value = $this -> args[$name];
+		if($this->isArgDefined($name)) {
+			$value = $this->args[$name];
 		}
 		return $value;
 	}
 	
 	function setArg($name, $value) {
-		$this -> args[$name] = $value;
+		$this->args[$name] = $value;
 	}
 	
 	function getArgs() {
-		return $this -> args;
+		return $this->args;
 	}
 	
 	function isPost() {
@@ -39,5 +38,3 @@ class PhiEvent {
 	}
 	
 }
-
-?>

@@ -1,4 +1,4 @@
-<?php include "/../includes/validations.inc";?>
+<?php include "/../includes/validations.php";?>
 <form id="signin" action="<?php echo $actionUrl;?>" method="post">
 	<dl class="field">
 		<dt><label for="signin_username">Username</label></dt>

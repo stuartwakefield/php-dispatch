@@ -6,9 +6,9 @@ class AddTreeView {
 	private $cancelEvent;
 	
 	function __construct($path, $actionEvent, $cancelEvent) {
-		$this -> path = $path;
-		$this -> actionEvent = $actionEvent;
-		$this -> cancelEvent = $cancelEvent;
+		$this->path = $path;
+		$this->actionEvent = $actionEvent;
+		$this->cancelEvent = $cancelEvent;
 	}
 	
 	function display($args, $context) {
@@ -19,10 +19,10 @@ class AddTreeView {
 		$lat = "";
 		$long = "";
 		
-		$actionUrl = $context -> buildEventUrl($this -> actionEvent, array());
-		$cancelUrl = $context -> buildEventUrl($this -> cancelEvent, array());
+		$actionUrl = $context->buildEventUrl($this->actionEvent, array());
+		$cancelUrl = $context->buildEventUrl($this->cancelEvent, array());
 		
-		include $this -> path;
+		include $this->path;
 		
 	}
 	
@@ -31,11 +31,11 @@ class AddTreeView {
 	}
 	
 	private function getActionUrl() {
-		return $this -> actionEvent;
+		return $this->actionEvent;
 	}
 	
 	private function getCancelUrl() {
-		return $this -> cancelEvent;
+		return $this->cancelEvent;
 	}
 	
 }

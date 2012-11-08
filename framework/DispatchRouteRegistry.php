@@ -1,17 +1,17 @@
 <?php
-class PhiRouteRegistry {
+class DispatchRouteRegistry {
 	
 	private $routes;
 	
 	function __construct($routes) {
-		$this -> routes = array();
+		$this->routes = array();
 		foreach($routes as $pattern => $event) {
-			$this -> registerRoute($pattern, $event);
+			$this->registerRoute($pattern, $event);
 		}
 	}
 	
 	function matchRoute($pattern) {
-		foreach($this -> routes as $route) {
+		foreach($this->routes as $route) {
 			if(preg_match($route["regexp"], $pattern)) {
 				
 				// extract the event args from the pattern
@@ -31,7 +31,7 @@ class PhiRouteRegistry {
 	}
 	
 	function buildRoute($event, $args) {
-		foreach($this -> routes as $route) {
+		foreach($this->routes as $route) {
 			if($route["event"] == $event) {
 				$pattern = $route["pattern"];
 				$matches = array();
@@ -51,7 +51,7 @@ class PhiRouteRegistry {
 	
 	private function registerRoute($pattern, $event) {
 		// transform pattern wildcards to regexp wildcards
-		$pattern = preg_replace("/\*/", ".*", $this -> normalizeRoute($pattern));
+		$pattern = preg_replace("/\*/", ".*", $this->normalizeRoute($pattern));
 		
 		// extract route parameters & transform parameters into regexp capture groups
 		$matches = array();
@@ -62,7 +62,7 @@ class PhiRouteRegistry {
 		// escape slashes and finalize regexp
 		$regexp = preg_replace("/\//", "\/", $regexp);
 		$regexp = "/^$regexp$/";
-		$this -> routes[] = array(
+		$this->routes[] = array(
 			"regexp" => $regexp,
 			"pattern" => $pattern,
 			"params" => $params,
@@ -75,4 +75,3 @@ class PhiRouteRegistry {
 	}
 	
 }
-?>

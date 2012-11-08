@@ -4,7 +4,7 @@ class PostLoginLayout {
 	private $path;
 	
 	function __construct($path) {
-		$this -> path = $path;
+		$this->path = $path;
 	}
 	
 	function display($args, $context) {
@@ -17,13 +17,13 @@ class PostLoginLayout {
 		 * The others are either calculated here or 
 		 * optional. */
 		$title = $args["title"];
-		$stylesheet = $context -> buildResourceUrl("assets/style.css");
+		$stylesheet = $context->buildResourceUrl("assets/style.css");
 		$styles = array();
 		$scripts = array();
 	//	$addTreeUrl = $args["addTreeUrl"];
 	//	$signOutUrl = $args["signOutUrl"];
-		$addTreeUrl = $context -> buildEventUrl("tree.add", array());
-		$signOutUrl = $context -> buildEventUrl("signout", array());
+		$addTreeUrl = $context->buildEventUrl("tree.add", array());
+		$signOutUrl = $context->buildEventUrl("signout", array());
 		$messages = array();
 		$content = $args["content"];
 		$copyrightRange = 2012;
@@ -40,9 +40,8 @@ class PostLoginLayout {
 		}
 		
 		// Include the page
-		include $this -> path;
+		include $this->path;
 		
 	}
 	
 }
-?>

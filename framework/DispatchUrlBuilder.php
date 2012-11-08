@@ -1,35 +1,35 @@
 <?php
-class PhiUrlBuilder {
+class DispatchUrlBuilder {
 			
 	private $baseUrl;
 	private $routeRegistry;
 	
 	function __construct($baseUrl, $routeRegistry) {
-		$this -> baseUrl = $baseUrl;
-		$this -> routeRegistry = $routeRegistry;
+		$this->baseUrl = $baseUrl;
+		$this->routeRegistry = $routeRegistry;
 	}
 	
 	function buildEventUrl($event, $args) {
-		$result = $this -> routeRegistry -> buildRoute($event, $args);
+		$result = $this->routeRegistry->buildRoute($event, $args);
 		if(isset($result)) {
 			$url = $result["pattern"];
 			$args = $result["args"];
 		} else {
 			$url = "?event=$event";
 		}
-		$params = $this -> buildQueryString($args);
+		$params = $this->buildQueryString($args);
 		if($params) {
 			$url .= "&$params";
 		} 
-		return $this -> baseUrl . $url;
+		return $this->baseUrl . $url;
 	}
 	
 	function buildResourceUrl($resource) {
-		return $this -> baseUrl . $resource; 
+		return $this->baseUrl . $resource; 
 	}
 	
 	function redirectEvent($event, $args) {
-		header("Location: " . $this -> buildEventUrl($event, $args));
+		header("Location: " . $this->buildEventUrl($event, $args));
 	}
 	
 	private function buildQueryString($params) {
@@ -41,4 +41,3 @@ class PhiUrlBuilder {
 	}
 	
 }
-?>
