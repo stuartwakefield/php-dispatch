@@ -1,5 +1,4 @@
 <?php
-
 class Security {
 	
 	private $username;
@@ -7,12 +6,12 @@ class Security {
 	
 	function __construct($username, $password) {
 		session_start();
-		$this -> username = $username;
-		$this -> password = $password;
+		$this->username = $username;
+		$this->password = $password;
 	}
 	
 	function signIn($username, $password) {
-		if($this -> username == $username && $this -> password == $password) {
+		if($this->username == $username && $this->password == $password) {
 			$_SESSION["SIGNED_IN"] = true;
 		}
 	}
@@ -26,4 +25,3 @@ class Security {
 	}
 	
 }
-?>

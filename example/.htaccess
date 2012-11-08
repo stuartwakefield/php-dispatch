@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^([^\.]+)$ /phi/example/index.php?route=$1 [QSA]
+RewriteRule ^([^\.]+)$ /dispatch/example/index.php?route=$1 [QSA]
